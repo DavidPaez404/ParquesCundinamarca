@@ -2,164 +2,365 @@
 <html lang="es">
 <head>
 <link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_effects.css" />
 <link rel="stylesheet" type="text/css" href="content.css" />
 <link rel="stylesheet" type="text/css" href="nav.css" />
 <meta http-equiv="content-type" content="text/html;  charset=utf-8" />
-<title>Recomendaciones y servicios naturales | Parques naturales de cundinamarca </title>
+<title>Recomendaciones y Servicios naturales | Parques naturales de cundinamarca </title>
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <meta name="author" content="Brian Steven Beltran Martinez - David Alejandro Paez Gonzalez" />
 <meta name="generator" content="eXeLearning 2.7 - exelearning.net" />
 <!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
 <script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_effects.js"></script>
 <script type="text/javascript" src="common_i18n.js"></script>
 <script type="text/javascript" src="common.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+  body {
+     background-image : url('https://cdn.pixabay.com/photo/2022/07/29/16/30/sea-7352141_960_720.jpg');
+     background-position: center;
+  }
+  #nodeTitle {
+     font-family: 'Varela Round', sans-serif;
+     font-size: 2.5em;
+  }
+  .containerGrid {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap : 15px;
+     padding: 10px;
+  }
+  .generalContainer figure{
+   margin: 0;
+  }
+  .mainParque img{
+     border-radius: 60px;
+     clip-path: circle(66.1% at 35% 43%);
+  }
+  .containerGrid>.otherContainer img,.containerGrid>img {
+     width : 100%;
+     border-radius: 15px;
+     box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+  }
+  .containerGrid>.otherContainer,.otherContainer2 {
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+  }
+  .otherContainer2 p {
+     margin : 0;
+  }
+  .exe-paginated .fx-page-content.fx-C2 {
+     background: #00843d;
+     color: white;
+     border: none;
+  }
+  .exe-paginated .fx-page-content.fx-C2 * {
+     color: inherit;
+  }
+  .generalContainer {
+     font-family: 'Rubik', sans-serif;
+  }
+  .generalContainer *,.quiz-test-form * {
+     font-family: 'Rubik', sans-serif;
+  }
+  .js .fx-pagination a {
+     background: black;
+     color: #ffffff!important;
+  }
+  .exe-accordion {
+     border-top: 1px solid #00843d;
+     border-left: 1px solid #00843d;
+     border-right: 2px solid #00843d;
+     border-bottom: 2px solid #00843d;
+  }
+  a.fx-accordion-title h2:before {
+     background-color: transparent;
+  }
+  .fx-accordion-title, .exe-accordion h2 {
+     color: #00843d;
+  }
+  .fx-accordion-section:last-child .fx-accordion-title {
+     border-left: 20px solid #00843d!important;
+  }
+  .js .fx-accordion-title {
+     color: #00843d!important;
+  }
+  .fx-accordion-title {
+     border-top: 1px solid #00843d!important;
+  }
+  a.fx-accordion-title h2:hover:before {
+     background-color: #00843d;
+  }
+  .fx-image img{
+     border-radius: 15px;
+     box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+  }
+  .fx-image figcaption {
+    text-align: center;
+  }
+  .fx-carousel-content {
+     border: none;
+     box-shadow: rgb(50 50 93 / 25%) 0px 6px 12px -2px, rgb(0 0 0 / 30%) 0px 3px 7px -3px;
+  }
+  .fx-pagination li.fx-carousel-prev-next.fx-C2>a {
+    background: black;
+  }
+  .exe-carousel img{
+    width: 400px;
+    height: auto;
+  }
+  .exe-fx:not(.exe-accordion) h2 {
+    font-size: 18pt;
+    text-align: center;
+  }
+  .iDevice_answers input,.iDevice_answers .sr-av {
+     display: none;
+  }
+  .newLabel{
+     cursor: pointer;
+     display: block;
+     width: 18px;
+     height: 18px;
+     border: 3px solid #051a48;
+     border-radius: 8px;
+     position: relative;
+  }
+  .newLabel>span{
+     display: none;
+     position: absolute;
+     inset: 1px;
+  }
+  .iDevice_answers input:checked + .newLabel>span {
+     display: initial;
+  }
+  .iDevice_buttons input {
+      background-color: #00843d;
+      padding: 8px 15px;
+      border-radius: 8px;
+  }
+  .iDevice_buttons p {
+      text-align: center;
+  }
+  .containerOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .containerOptions div{
+    background-color: #00843d;
+    border-radius: 20px;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .containerOptions div:nth-child(2n) img{
+    justify-self: end;
+  }
+  .containerOptions div img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+  }
+  .containerOptions h3{
+    font-size: 2.4rem;
+    text-align: center;
+    color: white;
+  }
+  .containerCards {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   align-items: center;
+   justify-items: center;
+   gap: 15px;
+   padding: 15px;
+  }
+  .containerCards>div {
+   display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: 15px;
+    max-width: 350px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .containerCards>div>* {
+    position: relative;
+    z-index: 3;
+  }
+  .containerCards>div::before {
+   content: "";
+   position: absolute;
+   inset: 0;
+   clip-path: circle(91.2% at 80% 93%);
+   background-color: #0b5024;
+    z-index: 3;
+  }
+  .containerCards>div img {
+   width: 100%;
+   height: auto;
+   border-radius: 50%;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  .containerImageCard {
+   width: 70%;
+  }
+  .containerInformation {
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+  }
+  .containerCards>div h2 {
+      font-size: 1.9rem;
+      text-align: center;
+      margin: 0;
+      color: white;
+   }
+   .containerCards>div p {
+      margin: 0;
+      color: white;
+   }
+   #siteNav > ul > li:nth-child(7):not(#active) > a.no-ch:not(#active) {
+      background: #65b489;
+   }
+   #siteNav > ul > li:nth-child(7) > a {
+      border-radius: 0 0 20px 0;
+   }
+   #siteNav .active,#siteNav .active:hover {
+      border-color: #00843D;
+   }
+  #content{
+     position: relative;
+     z-index: 3;
+     overflow: hidden;
+  }
+  #main-wrapper {
+     background: white;
+     border-radius: 20px;
+  }
+  #siteNav > ul > li:nth-child(1) > a{
+     border-radius: 20px 0 0 0;
+  }
+  #siteFooter{
+     padding: 0;
+  }
+  a.next,a.prev {
+     width: initial;
+     height: initial;
+     background: initial;
+  }
+  a.prev{
+     transform: rotateY(180deg);
+  }
+  #header-options>#toggle-nav {
+     background: initial;
+     padding: 0;
+  }
+  #header-options {
+     margin: 0;
+     margin-top: 15px;
+  }
+  #headerContent {
+     color: transparent;
+     text-shadow: initial;
+     position: relative;
+  }
+  #siteNav li:not(#active) a.daddy {
+     border-bottom: 1px solid #00843d;
+     background: #65b489;
+  }
+  #siteNav li:not(#active) a.no-ch:not(.active) {
+     border-bottom: 1px solid #00843d;
+     background: rgb(144 195 167);
+  }
+  #siteNav li:not(#active) a.daddy:hover,#siteNav > ul > li:nth-child(7):not(#active) > a.no-ch:not(#active):hover {
+     background: rgb(66 143 101);
+  }
+  #siteNav li:not(#active) a.no-ch:not(.active):hover {
+     background: rgb(129 185 154);
+  }
+</style>
 <script type="text/javascript">
    $(()=>{
-      const borderRadius = "20px";
-      $('body').append($('<span></span>').css({
-         "position": "fixed",
-         "background-color": "rgba(0, 0, 0, 0.329)",
-         "inset": "0",
-         "z-index":"2"
-      }));
-      $('#content').css({"position":"relative","z-index":"3","overflow":"hidden"});
-      $('#main-wrapper').css({
-         "background":"white",
-         "border-radius":borderRadius
-      });
-      $(document.querySelector('#siteNav ul:first-child a')).css({
-         "border-radius" : `${borderRadius} 0 0 0`
-      });
-      $('#siteFooter').css({
-         "padding" : 0
-      });
-      const svgNext = (h,c) => `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width=${h} height=${h} x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><g id="Arrow-23"><path d="m193.926 272.22544a40 40 0 0 0 0-32.55082l-71.10454-159.63349c-19.559-38.20679 20.94808-60.17978 45.69913-40.95736 45.93009 35.67072 162.30159 143.0233 214.99355 192.00959a33.93479 33.93479 0 0 1 0 49.71334c-52.692 48.98629-169.06346 156.33887-214.99355 192.00959-25.364 19.69849-64.89325-3.46325-45.69913-40.95736z" fill=${c || "#ffffff"} data-original="#000000" class=""></path></g></g></svg>`;
-      const svgMenu = (h,c) => `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width=${h} height=${h} x="0" y="0" viewBox="0 0 297.001 297.001" style="enable-background:new 0 0 512 512" xml:space="preserve" class="hovered-paths"><g> <g> <g> <g> <path d="M107.883,0h-85.27C10.144,0,0.001,10.143,0.001,22.612v85.27c0,12.469,10.143,22.612,22.612,22.612h85.27 c12.469,0,22.612-10.143,22.612-22.612v-85.27C130.493,10.143,120.352,0,107.883,0z" fill=${c || "#ffffff"} data-original="#000000" class="hovered-path"></path> <path d="M274.388,0h-85.27c-12.469,0-22.612,10.143-22.612,22.612v85.27c0,12.469,10.143,22.612,22.612,22.612h85.27 c12.469,0,22.612-10.143,22.612-22.612v-85.27C297,10.143,286.857,0,274.388,0z" fill=${c || "#ffffff"} data-original="#000000" class="hovered-path"></path> <path d="M107.883,166.507h-85.27c-12.469,0-22.612,10.142-22.612,22.611v85.27C0.001,286.857,10.144,297,22.613,297h85.27 c12.469,0,22.612-10.143,22.612-22.612v-85.27C130.493,176.649,120.352,166.507,107.883,166.507z" fill=${c || "#ffffff"} data-original="#000000" class="hovered-path"></path> <path d="M274.388,166.507h-85.27c-12.469,0-22.612,10.143-22.612,22.612v85.27c0,12.469,10.143,22.612,22.612,22.612h85.27 C286.857,297,297,286.857,297,274.388v-85.27C297,176.649,286.857,166.507,274.388,166.507z" fill=${c || "#ffffff"} data-original="#000000" class="hovered-path"></path> </g> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </g></svg>`;
-      const changeNextAndPrev = (v,o={}) => $(`a.${v}`).css({
-         "width" : "initial",
-         "height" : "initial",
-         "background" : "initial",
-         ...o
-      });
-      changeNextAndPrev('next');
-      changeNextAndPrev('prev',{
-         "transform" : "rotateY(180deg)"
-      });
-      $('a.next span').replaceWith(svgNext(35));
-      $('a.prev span').replaceWith(svgNext(35));
-      setTimeout(()=>{
-         $('#toggle-nav').css({
-               "background" : "initial",
-               "padding" : 0
+      (async ()=> {
+         const sound1 = await new Audio('https://sound-effects-media.bbcrewind.co.uk/mp3/NHU05085068.mp3');
+         const sound2 = await new Audio('http://www.sonidosmp3gratis.com/sounds/bambu_1.mp3');
+         sound1.currentTime = 1.2;
+         $('body').append($('<span></span>').css({
+            "position": "fixed",
+            "background-color": "rgba(0, 0, 0, 0.329)",
+            "inset": "0",
+            "z-index":"2"
+         }));
+         const svgNext = (h,c) => `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width=${h} height=${h} x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><g id="Arrow-23"><path d="m193.926 272.22544a40 40 0 0 0 0-32.55082l-71.10454-159.63349c-19.559-38.20679 20.94808-60.17978 45.69913-40.95736 45.93009 35.67072 162.30159 143.0233 214.99355 192.00959a33.93479 33.93479 0 0 1 0 49.71334c-52.692 48.98629-169.06346 156.33887-214.99355 192.00959-25.364 19.69849-64.89325-3.46325-45.69913-40.95736z" fill=${c || "#ffffff"} data-original="#000000" class=""></path></g></g></svg>`;
+         const svgMenu = (h,c) => `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width=${h} height=${h} x="0" y="0" viewBox="0 0 297.001 297.001" style="enable-background:new 0 0 512 512" xml:space="preserve" class="hovered-paths"><g> <g> <g> <g> <path d="M107.883,0h-85.27C10.144,0,0.001,10.143,0.001,22.612v85.27c0,12.469,10.143,22.612,22.612,22.612h85.27 c12.469,0,22.612-10.143,22.612-22.612v-85.27C130.493,10.143,120.352,0,107.883,0z" fill=${c || "#ffffff"} data-original="#000000" class="hovered-path"></path> <path d="M274.388,0h-85.27c-12.469,0-22.612,10.143-22.612,22.612v85.27c0,12.469,10.143,22.612,22.612,22.612h85.27 c12.469,0,22.612-10.143,22.612-22.612v-85.27C297,10.143,286.857,0,274.388,0z" fill=${c || "#ffffff"} data-original="#000000" class="hovered-path"></path> <path d="M107.883,166.507h-85.27c-12.469,0-22.612,10.142-22.612,22.611v85.27C0.001,286.857,10.144,297,22.613,297h85.27 c12.469,0,22.612-10.143,22.612-22.612v-85.27C130.493,176.649,120.352,166.507,107.883,166.507z" fill=${c || "#ffffff"} data-original="#000000" class="hovered-path"></path> <path d="M274.388,166.507h-85.27c-12.469,0-22.612,10.143-22.612,22.612v85.27c0,12.469,10.143,22.612,22.612,22.612h85.27 C286.857,297,297,286.857,297,274.388v-85.27C297,176.649,286.857,166.507,274.388,166.507z" fill=${c || "#ffffff"} data-original="#000000" class="hovered-path"></path> </g> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </g></svg>`;
+         $('a.next span').replaceWith(svgNext(35));
+         $('a.prev span').replaceWith(svgNext(35));
+         setTimeout(()=>{
+            $('#toggle-nav span').replaceWith(svgMenu(40));
+         },100);
+         $('#headerContent').append($('<img src="https://ccsm.org.co/images/logos/UCC_logo.png" alt="ucc">').css({
+            "position" : "absolute",
+            "top" : "-75px",
+            "left" : 0,
+            "width" : "250px",
+            "height" : "auto"
+         }));
+         document.querySelectorAll('.iDevice_answer label').forEach((val)=>{
+            $(val).parent().append($(`<label for="${$(val).attr("for")}" class="newLabel">
+               <span><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="100%" height="100%" x="0" y="0" viewBox="0 0 405.272 405.272" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g> <g> <path d="M393.401,124.425L179.603,338.208c-15.832,15.835-41.514,15.835-57.361,0L11.878,227.836 c-15.838-15.835-15.838-41.52,0-57.358c15.841-15.841,41.521-15.841,57.355-0.006l81.698,81.699L336.037,67.064 c15.841-15.841,41.523-15.829,57.358,0C409.23,82.902,409.23,108.578,393.401,124.425z" fill="#00843d" data-original="#000000"></path> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </g></svg></span>
+            </label>`));         
+         });
+         const outAudio = ()=>{
+            sound1.pause();
+            sound1.currentTime = 1.2;
+         }
+         document.querySelectorAll('#siteNav a:not(.active)').forEach(val=>{
+            $(val).hover(()=>{
+               sound1.play();
+               setTimeout(outAudio,400);
+            },outAudio);
+         });
+         const execFunctionClick = val=>{
+            val.addEventListener('click',(e)=>{
+               sound2.play();
             });
-         $('#toggle-nav span').replaceWith(svgMenu(40));
-         $('#header-options').css({
-            "margin" : 0,
-            "margin-top" : "15px"
-         })
-      },100);
-      $('#headerContent').css({
-         "color" : "transparent",
-         "text-shadow" : "initial",
-         "position" : "relative"
-      }).append($('<img src="https://ccsm.org.co/images/logos/UCC_logo.png" alt="ucc">').css({
-         "position" : "absolute",
-         "top" : "-75px",
-         "left" : 0,
-         "width" : "250px",
-         "height" : "auto"
-      }));
-      $('#siteNav li:not(#active) a.daddy').css({
-         "border-bottom" : "1px solid #00843d",
-         "background" : "#65b489"
-      });
-      $('#siteNav li:not(#active) a.no-ch:not(.active)').css({
-         "border-bottom" : "1px solid #00843d",
-         "background" : "rgb(144 195 167)"
-      });
-      $('#siteNav li:not(#active) a.daddy').hover(function () {
-         $(this).css({"background" : "rgb(66 143 101)"});
-      },function () {
-         $(this).css({"background" : "#65b489"})
-      });
-      $('#siteNav li:not(#active) a.no-ch:not(.active)').hover(function () {
-         $(this).css({"background" : "rgb(129 185 154)"});
-      },function () {
-         $(this).css({"background" : "rgb(144 195 167)"})
-      });
-      $('head').append($('<style></style>').html(`
-         @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
-         @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-         body {
-            background-image : url('https://cdn.pixabay.com/photo/2022/07/29/16/30/sea-7352141_960_720.jpg');
-            background-position: center;
          }
-         #nodeTitle {
-            font-family: 'Varela Round', sans-serif;
-            font-size: 2.5em;
-         }
-         .containerGrid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap : 15px;
-            padding: 10px;
-         }
-         .mainParque img{
-            border-radius: 60px;
-            clip-path: circle(66.1% at 35% 43%);
-         }
-         .containerGrid>.otherContainer img,.containerGrid>img {
-            width : 100%;
-            border-radius: 15px;
-         }
-         .containerGrid>.otherContainer,.otherContainer2 {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-         }
-         .otherContainer2 p {
-            margin : 0;
-         }
-         .exe-paginated .fx-page-content.fx-C2 {
-            background: #00843d;
-            color: white;
-            border: none;
-         }
-         .generalContainer {
-            font-family: 'Rubik', sans-serif;
-         }
-         .generalContainer * {
-            font-family: 'Rubik', sans-serif;
-         }
-         .js .fx-pagination a {
-            background: black;
-            color: #ffffff!important;
-         }
-      `));
-      const changeCss = (t) => {
-         $('style').html(function () {
-            console.log($(this).html());
-            return $(this).html() + t;
-         });         
-      }
-      window.changeCss = changeCss;
+         document.querySelectorAll('.fx-pagination a').forEach(execFunctionClick);
+         document.querySelectorAll('.fx-accordion-section a').forEach(execFunctionClick);
+         $("#david").on( "click", function() {
+            window.open("https://www.linkedin.com/in/davidpaezg","_blank");
+         });
+         $("#stiven").on( "click", function() {
+            window.open("https://www.linkedin.com/in/brian-steven-beltran-martinez-88a579239","_blank");
+         });
+      })();
    });
 </script></head>
-<body class="exe-web-site" id="exe-node-14"><script type="text/javascript">document.body.className+=" js"</script>
+<body class="exe-web-site" id="exe-node-26"><script type="text/javascript">document.body.className+=" js"</script>
 <div id="content">
 <p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
 <header id="header" ><div id="headerContent">Parques naturales de cundinamarca</div></header>
 <nav id="siteNav">
 <ul>
    <li><a href="index.html" class="daddy main-node">Parques Naturales de Cundinamarca</a></li>
-   <li class="current-page-parent"><a href="parque_natual_de_sumapaz.html" class="current-page-parent daddy">Parque natual de Sumapaz</a>
-   <ul>
+   <li><a href="parque_natural_de_sumapaz.html" class="daddy">Parque natural de Sumapaz</a>
+   <ul class="other-section">
       <li><a href="caracteristicas_generales.html" class="no-ch">Caracteristicas generales</a></li>
       <li><a href="hidrografia.html" class="no-ch">Hidrografia</a></li>
       <li><a href="flora_y_fauna.html" class="no-ch">Flora y fauna</a></li>
-      <li id="active"><a href="recomendaciones_y_servicios_naturales.html" class="active no-ch">Recomendaciones y servicios naturales</a></li>
-      <li><a href="actividades.html" class="no-ch">Actividades</a></li>
+      <li><a href="recomendaciones_y_objetivos_de_conservacion.html" class="no-ch">Recomendaciones y objetivos de conservacion</a></li>
+      <li><a href="cuestionario.html" class="no-ch">Cuestionario</a></li>
    </ul>
    </li>
    <li><a href="parque_natural_los_tunos.html" class="daddy">Parque natural Los Tunos</a>
@@ -167,17 +368,16 @@
       <li><a href="caracteristicas_generales0.html" class="no-ch">Caracteristicas generales</a></li>
       <li><a href="servicios.html" class="no-ch">Servicios</a></li>
       <li><a href="flora_y_fauna0.html" class="no-ch">Flora y fauna</a></li>
-      <li><a href="leyenda_de_bochica.html" class="no-ch">Leyenda de bochica</a></li>
-      <li><a href="actividades0.html" class="no-ch">Actividades</a></li>
+      <li><a href="cuestionario0.html" class="no-ch">Cuestionario</a></li>
    </ul>
    </li>
-   <li><a href="parque_natural_chingaza.html" class="daddy">Parque natural Chingaza</a>
-   <ul class="other-section">
+   <li class="current-page-parent"><a href="parque_natural_chingaza.html" class="current-page-parent daddy">Parque natural Chingaza</a>
+   <ul>
       <li><a href="caracteristicas_generales1.html" class="no-ch">Caracteristicas generales</a></li>
       <li><a href="flora_y_fauna1.html" class="no-ch">Flora y Fauna</a></li>
-      <li><a href="recomendaciones_y_servicios_naturales0.html" class="no-ch">Recomendaciones y Servicios naturales</a></li>
-      <li><a href="actividades1.html" class="no-ch">Actividades</a></li>
+      <li id="active"><a href="recomendaciones_y_servicios_naturales.html" class="active no-ch">Recomendaciones y Servicios naturales</a></li>
       <li><a href="servicios0.html" class="no-ch">Servicios</a></li>
+      <li><a href="cuestionario1.html" class="no-ch">Cuestionario</a></li>
    </ul>
    </li>
    <li><a href="parque_natural_chicaque.html" class="daddy">Parque natural Chicaque</a>
@@ -185,55 +385,76 @@
       <li><a href="caracteristicas_generales2.html" class="no-ch">Caracteristicas generales</a></li>
       <li><a href="fauna_y_flora.html" class="no-ch">Fauna y flora</a></li>
       <li><a href="informacion_adicional.html" class="no-ch">Informacion adicional</a></li>
-      <li><a href="actividades2.html" class="no-ch">Actividades</a></li>
+      <li><a href="cuestionario2.html" class="no-ch">Cuestionario</a></li>
    </ul>
    </li>
    <li><a href="parque_natural_piedras_del_tunjo.html" class="daddy">Parque natural Piedras del Tunjo</a>
    <ul class="other-section">
       <li><a href="caracteristicas_generales3.html" class="no-ch">Caracteristicas generales</a></li>
-      <li><a href="resea_historica.html" class="no-ch">Reseña Historica</a></li>
+      <li><a href="resea_historica_y_leyenda.html" class="no-ch">Reseña Historica y leyenda</a></li>
       <li><a href="informacion_adicional0.html" class="no-ch">Informacion adicional</a></li>
-      <li><a href="actividades3.html" class="no-ch">Actividades</a></li>
+      <li><a href="cuestionario3.html" class="no-ch">Cuestionario</a></li>
    </ul>
    </li>
+   <li><a href="nosotros.html" class="no-ch">Nosotros</a></li>
 </ul>
 </nav>
 <div id='topPagination'>
 <nav class="pagination noprt">
-<a href="flora_y_fauna.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="actividades.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+<a href="flora_y_fauna1.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="servicios0.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
 </nav>
 </div>
 <div id="main-wrapper">
 <section id="main">
-<header id="nodeDecoration"><h1 id="nodeTitle">Recomendaciones y servicios naturales</h1></header>
-<article class="iDevice_wrapper textIdevice" id="id14">
-<div class="iDevice emphasis0" >
-<div id="ta14_119_2" class="block iDevice_content">
-<div class="exe-text"><h3 style="text-align: center;"><span style="font-family: verdana, geneva, sans-serif; font-size: 24pt;"><span style="color: #ff6600;">Servicios naturales</span></span></h3>
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td style="width: 50%;"><span style="font-family: verdana, geneva, sans-serif; font-size: 12pt; color: #000000;">El Parque Nacional Natural Sumapaz, considerado uno de los paramos más grandes del mundo, contribuye al sistema de abastecimiento de agua de Bogotá y a varios acueductos de pueblos en Cundinamarca y Meta, incluido el acueducto regional Ariari; Es prestadora de servicios de regulación hídrica con ríos como el Tunjuelo, Sumapaz y Ariari y sus numerosas lagunas que, entre otras cosas, posibilitan el desarrollo de importantes cultivos en la Orinoquia y también sustentan la biodiversidad del hábitat.</span></td>
-<td style="width: 50%;"><img src="ServiciosNaturales.jpg" alt="SeviciosNaturales" width="431" height="242" /></td>
-</tr>
-</tbody>
-</table>
-<h4 style="text-align: left;"><span style="font-family: verdana, geneva, sans-serif;">Objetivos de conservación del área</span></h4>
-<ol>
-<li><span style="font-family: verdana, geneva, sans-serif; color: #000000;">Preservación de los arreglos ecosistémicos de los complejos de Páramo, bosque muy húmedo andino y lagunas representados en el área protegida como aporte a la conexión entre el complejo de Páramo Montañoso Oriental y el bosque basal. Esto para conservar la biodiversidad, el flujo de genes y la provisión de servicios ecosistémicos entre los Andes, la Orinoquia y la Amazonía.</span></li>
-<li><span style="font-family: verdana, geneva, sans-serif; color: #000000;">Conservación de las cuencas de los ríos Alto Sumapaz, Tunjuelo, Cabrera, Blanco, Ariari, Guape y Duda y sistemas lagunares asociados presentes en el PNN como proveedores de servicios ecosistémicos para el Distrito Capital, Cundinamarca, Tolima, Huila y Meta.</span></li>
-<li><span style="font-family: verdana, geneva, sans-serif; color: #000000;">Preservación de los escenarios paisajísticos de valor histórico y cultural del macizo del Sumapaz representados en el área protegida.</span><span style="font-family: verdana, geneva, sans-serif; color: #000000;"></span></li>
-</ol>
-<h3 style="text-align: center;"><span style="font-family: verdana, geneva, sans-serif; color: #ff6600; font-size: 24pt;">Recomendaciones</span></h3>
-<ul>
-<li><span style="font-family: verdana, geneva, sans-serif; color: #000000; font-size: 12pt;">Se recomienda a los ecoturistas traer ropa abrigada para clima frío, botas de hule, repelente de insectos, impermeable, equipo de campamento, linterna y alimentos de alta energía.</span></li>
-<li><span style="font-family: verdana, geneva, sans-serif; color: #000000; font-size: 12pt;">El visitante debe estar vacunado contra la fiebre amarilla por lo menos 10 días antes del viaje y presentar el carné vigente en la entrada al Área Protegida. Este servicio es brindado por otras instituciones: la Cruz Roja Colombiana y la Dirección de Salud Portuaria del Aeropuerto El Dorado del Muelle Internacional de Bogotá.</span></li>
-<li><span style="font-family: verdana, geneva, sans-serif; color: #000000; font-size: 12pt;">Llevar un botiquín de primeros auxilios y desinfectante.</span></li>
-<li><span style="font-family: verdana, geneva, sans-serif; color: #000000; font-size: 12pt;">Es importante que investigues el parque, recursos, condiciones, recomendaciones de ubicación, etc. antes de viajar.</span></li>
-<li><span style="font-family: verdana, geneva, sans-serif; color: #000000; font-size: 12pt;">Caminar por los senderos autorizados únicamente en compañía de un oficial del parque o guía. No te separes del grupo y presta atención a tus compañeros.</span></li>
-<li><span style="font-family: verdana, geneva, sans-serif; color: #000000; font-size: 12pt;">Evitar traer objetos nocivos que atenten contra la biodiversidad del parque, como aerosoles, animales, arpones y armas de fuego, entre otros.</span></li>
-<li><span style="font-family: verdana, geneva, sans-serif; color: #000000; font-size: 12pt;">No se permite la recolección de material vegetal y/o animal.</span></li>
-</ul></div>
+<header id="nodeDecoration"><h1 id="nodeTitle">Recomendaciones y Servicios naturales</h1></header>
+<article class="iDevice_wrapper textIdevice em_iDevice em_iDevice_udl_eng_orientaciones" id="id33">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header" style="background-image:url(icon_udl_eng_orientaciones.svg)"><h1 class="iDeviceTitle">Servicios naturales</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta33_115_2" class="block iDevice_content">
+<div class="exe-text"><div class="generalContainer">
+<div class="exe-fx exe-paginated">
+<h2></h2>
+<p><span style="font-size: 14pt;">El Parque Nacional Natural Chingaza extrae agua para el consumo de aproximadamente el 80% de los 10 millones de habitantes de la región de Bogotá y 11 comunidades aledañas.</span></p>
+<h2></h2>
+<p><span style="font-size: 14pt;">Gracias a su belleza escénica y memoria histórica, Chingaza ofrece ecoturismo a unas 15.000 personas al año y es también fuente de apoyo a la investigación científica.</span></p>
+<h2></h2>
+<p><span style="font-size: 14pt;">La biodiversidad representada por especies como el oso de anteojos también es una bendición para la humanidad en términos de valores estéticos, investigación y apoyo para las generaciones</span></p>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice em_iDevice_udl_exp_ejercicio" id="id50">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header" style="background-image:url(icon_udl_exp_ejercicio.svg)"><h1 class="iDeviceTitle">Recomendaciones</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta50_153_2" class="block iDevice_content">
+<div class="exe-text"><div class="exe-fx exe-paginated">
+<h2></h2>
+<p><span style="font-size: 14pt;">El número máximo de personas por pista por día es de 40 (puede variar según las condiciones climáticas).</span></p>
+<h2></h2>
+<p><span style="font-size: 14pt;">Salvo excepciones, el derecho de acceso, que se adquiere en el momento de la reserva, deberá presentarse en los puntos habilitados.</span></p>
+<h2></h2>
+<p><span style="font-size: 14pt;">Solo se permite el ingreso de visitantes por los lugares autorizados: Sector Piedras Gordas, Sector Siecha y Sector La Paila-Laguna de Chingaza. La entrada desde diferentes lugares requiere procesos sancionadores de acuerdo con la normativa aplicable.</span></p>
+<h2></h2>
+<p><span style="font-size: 14pt;">No existe transporte público para llegar al Parque Nacional Natural Chingaza, es necesario hacerlo con vehículos particulares.</span></p>
+<h2></h2>
+<p><span style="font-size: 14pt;">Asegúrate de tener suficiente combustible, en el área protegida no hay repostaje con este servicio, revisa que tu vehículo esté en buenas condiciones.</span></p>
+<h2></h2>
+<p><span style="font-size: 14pt;">Los caminos de acceso al parque no están cubiertos (en condiciones aceptables) y se recomienda precaución debido a las condiciones climáticas. Debes conducir a 40 máximo y con las luces encendidas.</span></p>
+<h2></h2>
+<p><span style="font-size: 14pt;">Solo se puede visitar un (1) sector por día dependiendo de la distancia de las rutas y las condiciones climáticas.</span></p>
+<h2></h2>
+<p><span style="font-size: 14pt;">Está prohibido ingresar y consumir bebidas alcohólicas, alucinógenas o psicoactivas dentro del área reservada.</span></p>
+</div>
+<p></p></div>
+</div>
+</div>
 </div>
 </div>
 </article>
@@ -241,7 +462,7 @@
 </div>
 <div id='bottomPagination'>
 <nav class="pagination noprt">
-<a href="flora_y_fauna.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="actividades.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+<a href="flora_y_fauna1.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="servicios0.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
 </nav>
 </div>
 </div>
