@@ -13,338 +13,340 @@
 <script type="text/javascript" src="exe_jquery.js"></script>
 <script type="text/javascript" src="common_i18n.js"></script>
 <script type="text/javascript" src="common.js"></script>
+<link rel="stylesheet" type="text/css" href="gameqp-activity.css" />
+<script type="text/javascript" src="selecciona-activity.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-  body {
-     background-image : url('https://cdn.pixabay.com/photo/2022/07/29/16/30/sea-7352141_960_720.jpg');
-     background-position: center;
-  }
-  #nodeTitle {
-     font-family: 'Varela Round', sans-serif;
-     font-size: 2.5em;
-  }
-  .containerGrid {
-     display: grid;
-     grid-template-columns: 1fr 1fr;
-     gap : 15px;
-     padding: 10px;
-  }
-  .generalContainer figure{
-   margin: 0;
-  }
-  .mainParque img{
-     border-radius: 60px;
-     clip-path: circle(66.1% at 35% 43%);
-  }
-  .containerGrid>.otherContainer img,.containerGrid>img {
-     width : 100%;
-     border-radius: 15px;
-     box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
-  }
-  .containerGrid>.otherContainer,.otherContainer2 {
+   @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+   body {
+      background-image : url('https://cdn.pixabay.com/photo/2022/07/29/16/30/sea-7352141_960_720.jpg');
+      background-position: center;
+   }
+   #nodeTitle {
+      font-family: 'Varela Round', sans-serif;
+      font-size: 2.5em;
+   }
+   .containerGrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap : 15px;
+      padding: 10px;
+   }
+   .generalContainer figure{
+    margin: 0;
+   }
+   .mainParque img{
+      border-radius: 60px;
+      clip-path: circle(66.1% at 35% 43%);
+   }
+   .containerGrid>.otherContainer img,.containerGrid>img {
+      width : 100%;
+      border-radius: 15px;
+      box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+   }
+   .containerGrid>.otherContainer,.otherContainer2 {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+   }
+   .otherContainer2 p {
+      margin : 0;
+   }
+   .exe-paginated .fx-page-content.fx-C2 {
+      background: #00843d;
+      color: white;
+      border: none;
+   }
+   .exe-paginated .fx-page-content.fx-C2 * {
+      color: inherit;
+   }
+   .generalContainer {
+      font-family: 'Rubik', sans-serif;
+   }
+   .generalContainer *,.quiz-test-form * {
+      font-family: 'Rubik', sans-serif;
+   }
+   .js .fx-pagination a {
+      background: black;
+      color: #ffffff!important;
+   }
+   .exe-accordion {
+      border-top: 1px solid #00843d;
+      border-left: 1px solid #00843d;
+      border-right: 2px solid #00843d;
+      border-bottom: 2px solid #00843d;
+   }
+   a.fx-accordion-title h2:before {
+      background-color: transparent;
+   }
+   .fx-accordion-title, .exe-accordion h2 {
+      color: #00843d;
+   }
+   .fx-accordion-section:last-child .fx-accordion-title {
+      border-left: 20px solid #00843d!important;
+   }
+   .js .fx-accordion-title {
+      color: #00843d!important;
+   }
+   .fx-accordion-title {
+      border-top: 1px solid #00843d!important;
+   }
+   a.fx-accordion-title h2:hover:before {
+      background-color: #00843d;
+   }
+   .fx-image img{
+      border-radius: 15px;
+      box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+   }
+   .fx-image figcaption {
+     text-align: center;
+   }
+   .fx-carousel-content {
+      border: none;
+      box-shadow: rgb(50 50 93 / 25%) 0px 6px 12px -2px, rgb(0 0 0 / 30%) 0px 3px 7px -3px;
+   }
+   .fx-pagination li.fx-carousel-prev-next.fx-C2>a {
+     background: black;
+   }
+   .exe-carousel img{
+     width: 400px;
+     height: auto;
+   }
+   .exe-fx:not(.exe-accordion) h2 {
+     font-size: 18pt;
+     text-align: center;
+   }
+   .iDevice_answers input,.iDevice_answers .sr-av {
+      display: none;
+   }
+   .newLabel{
+      cursor: pointer;
+      display: block;
+      width: 18px;
+      height: 18px;
+      border: 3px solid #051a48;
+      border-radius: 8px;
+      position: relative;
+   }
+   .newLabel>span{
+      display: none;
+      position: absolute;
+      inset: 1px;
+   }
+   .iDevice_answers input:checked + .newLabel>span {
+      display: initial;
+   }
+   .iDevice_buttons input {
+       background-color: #00843d;
+       padding: 8px 15px;
+       border-radius: 8px;
+   }
+   .iDevice_buttons p {
+       text-align: center;
+   }
+   .containerOptions {
      display: flex;
      flex-direction: column;
      gap: 10px;
-  }
-  .otherContainer2 p {
-     margin : 0;
-  }
-  .exe-paginated .fx-page-content.fx-C2 {
-     background: #00843d;
-     color: white;
-     border: none;
-  }
-  .exe-paginated .fx-page-content.fx-C2 * {
-     color: inherit;
-  }
-  .generalContainer {
-     font-family: 'Rubik', sans-serif;
-  }
-  .generalContainer *,.quiz-test-form * {
-     font-family: 'Rubik', sans-serif;
-  }
-  .js .fx-pagination a {
-     background: black;
-     color: #ffffff!important;
-  }
-  .exe-accordion {
-     border-top: 1px solid #00843d;
-     border-left: 1px solid #00843d;
-     border-right: 2px solid #00843d;
-     border-bottom: 2px solid #00843d;
-  }
-  a.fx-accordion-title h2:before {
-     background-color: transparent;
-  }
-  .fx-accordion-title, .exe-accordion h2 {
-     color: #00843d;
-  }
-  .fx-accordion-section:last-child .fx-accordion-title {
-     border-left: 20px solid #00843d!important;
-  }
-  .js .fx-accordion-title {
-     color: #00843d!important;
-  }
-  .fx-accordion-title {
-     border-top: 1px solid #00843d!important;
-  }
-  a.fx-accordion-title h2:hover:before {
+   }
+   .containerOptions div{
      background-color: #00843d;
-  }
-  .fx-image img{
+     border-radius: 20px;
+     padding: 15px;
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+   }
+   .containerOptions div:nth-child(2n) img{
+     justify-self: end;
+   }
+   .containerOptions div img {
+     width: 300px;
+     height: 200px;
+     object-fit: cover;
      border-radius: 15px;
      box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
-  }
-  .fx-image figcaption {
-    text-align: center;
-  }
-  .fx-carousel-content {
-     border: none;
-     box-shadow: rgb(50 50 93 / 25%) 0px 6px 12px -2px, rgb(0 0 0 / 30%) 0px 3px 7px -3px;
-  }
-  .fx-pagination li.fx-carousel-prev-next.fx-C2>a {
-    background: black;
-  }
-  .exe-carousel img{
-    width: 400px;
-    height: auto;
-  }
-  .exe-fx:not(.exe-accordion) h2 {
-    font-size: 18pt;
-    text-align: center;
-  }
-  .iDevice_answers input,.iDevice_answers .sr-av {
-     display: none;
-  }
-  .newLabel{
-     cursor: pointer;
-     display: block;
-     width: 18px;
-     height: 18px;
-     border: 3px solid #051a48;
-     border-radius: 8px;
-     position: relative;
-  }
-  .newLabel>span{
-     display: none;
-     position: absolute;
-     inset: 1px;
-  }
-  .iDevice_answers input:checked + .newLabel>span {
-     display: initial;
-  }
-  .iDevice_buttons input {
-      background-color: #00843d;
-      padding: 8px 15px;
-      border-radius: 8px;
-  }
-  .iDevice_buttons p {
-      text-align: center;
-  }
-  .containerOptions {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .containerOptions div{
-    background-color: #00843d;
-    border-radius: 20px;
-    padding: 15px;
+   }
+   .containerOptions h3{
+     font-size: 2.4rem;
+     text-align: center;
+     color: white;
+   }
+   .containerCards {
     display: grid;
     grid-template-columns: 1fr 1fr;
-  }
-  .containerOptions div:nth-child(2n) img{
-    justify-self: end;
-  }
-  .containerOptions div img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 15px;
-    box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
-  }
-  .containerOptions h3{
-    font-size: 2.4rem;
-    text-align: center;
-    color: white;
-  }
-  .containerCards {
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   align-items: center;
-   justify-items: center;
-   gap: 15px;
-   padding: 15px;
-  }
-  .containerCards>div {
-   display: flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
     align-items: center;
+    justify-items: center;
+    gap: 15px;
     padding: 15px;
-    border-radius: 15px;
-    max-width: 350px;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    cursor: pointer;
-  }
-  .containerCards>div>* {
-    position: relative;
-    z-index: 3;
-  }
-  .containerCards>div::before {
-   content: "";
-   position: absolute;
-   inset: 0;
-   clip-path: circle(91.2% at 80% 93%);
-   background-color: #0b5024;
-    z-index: 3;
-  }
-  .containerCards>div img {
-   width: 100%;
-   height: auto;
-   border-radius: 50%;
-   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  }
-  .containerImageCard {
-   width: 70%;
-  }
-  .containerInformation {
-   display: flex;
-   flex-direction: column;
-   gap: 8px;
-  }
-  .containerCards>div h2 {
-      font-size: 1.9rem;
-      text-align: center;
-      margin: 0;
-      color: white;
    }
-   .containerCards>div p {
-      margin: 0;
-      color: white;
+   .containerCards>div {
+    display: flex;
+     flex-direction: column;
+     gap: 10px;
+     justify-content: center;
+     align-items: center;
+     padding: 15px;
+     border-radius: 15px;
+     max-width: 350px;
+     position: relative;
+     z-index: 1;
+     overflow: hidden;
+     cursor: pointer;
    }
-   #siteNav > ul > li:nth-child(7):not(#active) > a.no-ch:not(#active) {
-      background: #65b489;
-   }
-   #siteNav > ul > li:nth-child(7) > a {
-      border-radius: 0 0 20px 0;
-   }
-   #siteNav .active,#siteNav .active:hover {
-      border-color: #00843D;
-   }
-  #content{
+   .containerCards>div>* {
      position: relative;
      z-index: 3;
-     overflow: hidden;
-  }
-  #main-wrapper {
-     background: white;
-     border-radius: 20px;
-  }
-  #siteNav > ul > li:nth-child(1) > a{
-     border-radius: 20px 0 0 0;
-  }
-  #siteFooter{
-     padding: 0;
-  }
-  a.next,a.prev {
-     width: initial;
-     height: initial;
-     background: initial;
-  }
-  a.prev{
-     transform: rotateY(180deg);
-  }
-  #header-options>#toggle-nav {
-     background: initial;
-     padding: 0;
-  }
-  #header-options {
-     margin: 0;
-     margin-top: 15px;
-  }
-  #headerContent {
-     color: transparent;
-     text-shadow: initial;
-     position: relative;
-  }
-  #siteNav li:not(#active) a.daddy {
-     border-bottom: 1px solid #00843d;
-     background: #65b489;
-  }
-  #siteNav li:not(#active) a.no-ch:not(.active) {
-     border-bottom: 1px solid #00843d;
-     background: rgb(144 195 167);
-  }
-  #siteNav li:not(#active) a.daddy:hover,#siteNav > ul > li:nth-child(7):not(#active) > a.no-ch:not(#active):hover {
-     background: rgb(66 143 101);
-  }
-  #siteNav li:not(#active) a.no-ch:not(.active):hover {
-     background: rgb(129 185 154);
-  }
-</style>
-<script type="text/javascript">
-   $(()=>{
-      (async ()=> {
-         const sound1 = await new Audio('https://sound-effects-media.bbcrewind.co.uk/mp3/NHU05085068.mp3');
-         const sound2 = await new Audio('http://www.sonidosmp3gratis.com/sounds/bambu_1.mp3');
-         sound1.currentTime = 1.2;
-         $('body').append($('<span></span>').css({
-            "position": "fixed",
-            "background-color": "rgba(0, 0, 0, 0.329)",
-            "inset": "0",
-            "z-index":"2"
-         }));
-         const svgNext = (h,c) => `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width=${h} height=${h} x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><g id="Arrow-23"><path d="m193.926 272.22544a40 40 0 0 0 0-32.55082l-71.10454-159.63349c-19.559-38.20679 20.94808-60.17978 45.69913-40.95736 45.93009 35.67072 162.30159 143.0233 214.99355 192.00959a33.93479 33.93479 0 0 1 0 49.71334c-52.692 48.98629-169.06346 156.33887-214.99355 192.00959-25.364 19.69849-64.89325-3.46325-45.69913-40.95736z" fill=${c || "#ffffff"} data-original="#000000" class=""></path></g></g></svg>`;
-         const svgMenu = (h,c) => `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width=${h} height=${h} x="0" y="0" viewBox="0 0 297.001 297.001" style="enable-background:new 0 0 512 512" xml:space="preserve" class="hovered-paths"><g> <g> <g> <g> <path d="M107.883,0h-85.27C10.144,0,0.001,10.143,0.001,22.612v85.27c0,12.469,10.143,22.612,22.612,22.612h85.27 c12.469,0,22.612-10.143,22.612-22.612v-85.27C130.493,10.143,120.352,0,107.883,0z" fill=${c || "#ffffff"} data-original="#000000" class="hovered-path"></path> <path d="M274.388,0h-85.27c-12.469,0-22.612,10.143-22.612,22.612v85.27c0,12.469,10.143,22.612,22.612,22.612h85.27 c12.469,0,22.612-10.143,22.612-22.612v-85.27C297,10.143,286.857,0,274.388,0z" fill=${c || "#ffffff"} data-original="#000000" class="hovered-path"></path> <path d="M107.883,166.507h-85.27c-12.469,0-22.612,10.142-22.612,22.611v85.27C0.001,286.857,10.144,297,22.613,297h85.27 c12.469,0,22.612-10.143,22.612-22.612v-85.27C130.493,176.649,120.352,166.507,107.883,166.507z" fill=${c || "#ffffff"} data-original="#000000" class="hovered-path"></path> <path d="M274.388,166.507h-85.27c-12.469,0-22.612,10.143-22.612,22.612v85.27c0,12.469,10.143,22.612,22.612,22.612h85.27 C286.857,297,297,286.857,297,274.388v-85.27C297,176.649,286.857,166.507,274.388,166.507z" fill=${c || "#ffffff"} data-original="#000000" class="hovered-path"></path> </g> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </g></svg>`;
-         $('a.next span').replaceWith(svgNext(35));
-         $('a.prev span').replaceWith(svgNext(35));
-         setTimeout(()=>{
-            $('#toggle-nav span').replaceWith(svgMenu(40));
-         },100);
-         $('#headerContent').append($('<img src="https://ccsm.org.co/images/logos/UCC_logo.png" alt="ucc">').css({
-            "position" : "absolute",
-            "top" : "-75px",
-            "left" : 0,
-            "width" : "250px",
-            "height" : "auto"
-         }));
-         document.querySelectorAll('.iDevice_answer label').forEach((val)=>{
-            $(val).parent().append($(`<label for="${$(val).attr("for")}" class="newLabel">
-               <span><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="100%" height="100%" x="0" y="0" viewBox="0 0 405.272 405.272" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g> <g> <path d="M393.401,124.425L179.603,338.208c-15.832,15.835-41.514,15.835-57.361,0L11.878,227.836 c-15.838-15.835-15.838-41.52,0-57.358c15.841-15.841,41.521-15.841,57.355-0.006l81.698,81.699L336.037,67.064 c15.841-15.841,41.523-15.829,57.358,0C409.23,82.902,409.23,108.578,393.401,124.425z" fill="#00843d" data-original="#000000"></path> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </g></svg></span>
-            </label>`));         
-         });
-         const outAudio = ()=>{
-            sound1.pause();
-            sound1.currentTime = 1.2;
-         }
-         document.querySelectorAll('#siteNav a:not(.active)').forEach(val=>{
-            $(val).hover(()=>{
-               sound1.play();
-               setTimeout(outAudio,400);
-            },outAudio);
-         });
-         const execFunctionClick = val=>{
-            val.addEventListener('click',(e)=>{
-               sound2.play();
-            });
-         }
-         document.querySelectorAll('.fx-pagination a').forEach(execFunctionClick);
-         document.querySelectorAll('.fx-accordion-section a').forEach(execFunctionClick);
-         $("#david").on( "click", function() {
-            window.open("https://www.linkedin.com/in/davidpaezg","_blank");
-         });
-         $("#stiven").on( "click", function() {
-            window.open("https://www.linkedin.com/in/brian-steven-beltran-martinez-88a579239","_blank");
-         });
-      })();
-   });
-</script></head>
+   }
+   .containerCards>div::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    clip-path: circle(91.2% at 80% 93%);
+    background-color: #0b5024;
+     z-index: 3;
+   }
+   .containerCards>div img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   }
+   .containerImageCard {
+    width: 70%;
+   }
+   .containerInformation {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+   }
+   .containerCards>div h2 {
+       font-size: 1.9rem;
+       text-align: center;
+       margin: 0;
+       color: white;
+    }
+    .containerCards>div p {
+       margin: 0;
+       color: white;
+    }
+    #siteNav > ul > li:nth-child(7):not(#active) > a.no-ch:not(#active) {
+       background: #65b489;
+    }
+    #siteNav > ul > li:nth-child(7) > a {
+       border-radius: 0 0 20px 0;
+    }
+    #siteNav .active,#siteNav .active:hover {
+       border-color: #00843D;
+    }
+   #content{
+      position: relative;
+      z-index: 3;
+      overflow: hidden;
+   }
+   #main-wrapper {
+      background: white;
+      border-radius: 20px;
+   }
+   #siteNav > ul > li:nth-child(1) > a{
+      border-radius: 20px 0 0 0;
+   }
+   #siteFooter{
+      padding: 0;
+   }
+   a.next,a.prev {
+      width: initial;
+      height: initial;
+      background: initial;
+   }
+   a.prev{
+      transform: rotateY(180deg);
+   }
+   #header-options>#toggle-nav {
+      background: initial;
+      padding: 0;
+   }
+   #header-options {
+      margin: 0;
+      margin-top: 15px;
+   }
+   #headerContent {
+      color: transparent;
+      text-shadow: initial;
+      position: relative;
+   }
+   #siteNav li:not(#active) a.daddy {
+      border-bottom: 1px solid #00843d;
+      background: #65b489;
+   }
+   #siteNav li:not(#active) a.no-ch:not(.active) {
+      border-bottom: 1px solid #00843d;
+      background: rgb(144 195 167);
+   }
+   #siteNav li:not(#active) a.daddy:hover,#siteNav > ul > li:nth-child(7):not(#active) > a.no-ch:not(#active):hover {
+      background: rgb(66 143 101);
+   }
+   #siteNav li:not(#active) a.no-ch:not(.active):hover {
+      background: rgb(129 185 154);
+   }
+ </style>
+ <script type="text/javascript">
+    $(()=>{
+       (async ()=> {
+          const sound1 = await new Audio('https://sound-effects-media.bbcrewind.co.uk/mp3/NHU05085068.mp3');
+          const sound2 = await new Audio('/bambu_1.mp3');
+          sound1.currentTime = 1.2;
+          $('body').append($('<span></span>').css({
+             "position": "fixed",
+             "background-color": "rgba(0, 0, 0, 0.329)",
+             "inset": "0",
+             "z-index":"2"
+          }));
+          const svgNext = (h,c) => `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width=${h} height=${h} x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><g id="Arrow-23"><path d="m193.926 272.22544a40 40 0 0 0 0-32.55082l-71.10454-159.63349c-19.559-38.20679 20.94808-60.17978 45.69913-40.95736 45.93009 35.67072 162.30159 143.0233 214.99355 192.00959a33.93479 33.93479 0 0 1 0 49.71334c-52.692 48.98629-169.06346 156.33887-214.99355 192.00959-25.364 19.69849-64.89325-3.46325-45.69913-40.95736z" fill=${c || "#ffffff"} data-original="#000000" class=""></path></g></g></svg>`;
+          const svgMenu = (h,c) => `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width=${h} height=${h} x="0" y="0" viewBox="0 0 297.001 297.001" style="enable-background:new 0 0 512 512" xml:space="preserve" class="hovered-paths"><g> <g> <g> <g> <path d="M107.883,0h-85.27C10.144,0,0.001,10.143,0.001,22.612v85.27c0,12.469,10.143,22.612,22.612,22.612h85.27 c12.469,0,22.612-10.143,22.612-22.612v-85.27C130.493,10.143,120.352,0,107.883,0z" fill=${c || "#ffffff"} data-original="#000000" class="hovered-path"></path> <path d="M274.388,0h-85.27c-12.469,0-22.612,10.143-22.612,22.612v85.27c0,12.469,10.143,22.612,22.612,22.612h85.27 c12.469,0,22.612-10.143,22.612-22.612v-85.27C297,10.143,286.857,0,274.388,0z" fill=${c || "#ffffff"} data-original="#000000" class="hovered-path"></path> <path d="M107.883,166.507h-85.27c-12.469,0-22.612,10.142-22.612,22.611v85.27C0.001,286.857,10.144,297,22.613,297h85.27 c12.469,0,22.612-10.143,22.612-22.612v-85.27C130.493,176.649,120.352,166.507,107.883,166.507z" fill=${c || "#ffffff"} data-original="#000000" class="hovered-path"></path> <path d="M274.388,166.507h-85.27c-12.469,0-22.612,10.143-22.612,22.612v85.27c0,12.469,10.143,22.612,22.612,22.612h85.27 C286.857,297,297,286.857,297,274.388v-85.27C297,176.649,286.857,166.507,274.388,166.507z" fill=${c || "#ffffff"} data-original="#000000" class="hovered-path"></path> </g> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </g></svg>`;
+          $('a.next span').replaceWith(svgNext(35));
+          $('a.prev span').replaceWith(svgNext(35));
+          setTimeout(()=>{
+             $('#toggle-nav span').replaceWith(svgMenu(40));
+          },100);
+          $('#headerContent').append($('<img src="https://ccsm.org.co/images/logos/UCC_logo.png" alt="ucc">').css({
+             "position" : "absolute",
+             "top" : "-75px",
+             "left" : 0,
+             "width" : "250px",
+             "height" : "auto"
+          }));
+          document.querySelectorAll('.iDevice_answer label').forEach((val)=>{
+             $(val).parent().append($(`<label for="${$(val).attr("for")}" class="newLabel">
+                <span><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="100%" height="100%" x="0" y="0" viewBox="0 0 405.272 405.272" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g> <g> <path d="M393.401,124.425L179.603,338.208c-15.832,15.835-41.514,15.835-57.361,0L11.878,227.836 c-15.838-15.835-15.838-41.52,0-57.358c15.841-15.841,41.521-15.841,57.355-0.006l81.698,81.699L336.037,67.064 c15.841-15.841,41.523-15.829,57.358,0C409.23,82.902,409.23,108.578,393.401,124.425z" fill="#00843d" data-original="#000000"></path> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </g></svg></span>
+             </label>`));         
+          });
+          const outAudio = ()=>{
+             sound1.pause();
+             sound1.currentTime = 1.2;
+          }
+          document.querySelectorAll('#siteNav a:not(.active)').forEach(val=>{
+             $(val).hover(()=>{
+                sound1.play();
+                setTimeout(outAudio,400);
+             },outAudio);
+          });
+          const execFunctionClick = val=>{
+             val.addEventListener('click',(e)=>{
+                sound2.play();
+             });
+          }
+          document.querySelectorAll('.fx-pagination a').forEach(execFunctionClick);
+          document.querySelectorAll('.fx-accordion-section a').forEach(execFunctionClick);
+          $("#david").on( "click", function() {
+             window.open("https://www.linkedin.com/in/davidpaezg","_blank");
+          });
+          $("#stiven").on( "click", function() {
+             window.open("https://www.linkedin.com/in/brian-steven-beltran-martinez-88a579239","_blank");
+          });
+       })();
+    });
+ </script></head>
 <body class="exe-web-site" id="exe-node-38"><script type="text/javascript">document.body.className+=" js"</script>
 <div id="content">
 <p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
@@ -405,6 +407,18 @@
 <div id="main-wrapper">
 <section id="main">
 <header id="nodeDecoration"><h1 id="nodeTitle">Cuestionario</h1></header>
+<article class="iDevice_wrapper SeleccionaIdevice em_iDevice" id="id66">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Selecciona</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta66_152_2" class="block iDevice_content">
+<div class="selecciona-IDevice"><div class="selecciona-instructions gameQP-instructions"><p><span style="font-size: 17.64px;">Elija las respuestas correctas y haga clic en el botón Comprobar.</span></p></div><div class="selecciona-version js-hidden">undefined</div><div class="selecciona-feedback-game"></div><div class="selecciona-DataGame js-hidden" >%E9%B0%F3%E1%FB%F5%FC%F3%E6%E7%E0%F3%B0%A8%B0%B0%BE%B0%F3%E7%E6%FA%FD%E0%B0%A8%B0%B0%BE%B0%F3%E7%E6%FA%FD%E0%C4%FB%F6%F7%FD%B0%A8%B0%B0%BE%B0%E6%EB%E2%F7%D5%F3%FF%F7%B0%A8%B0%C1%F7%FE%F7%F1%F1%FB%FD%FC%F3%B0%BE%B0%F7%FC%F6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%FB%F6%C4%FB%F6%F7%FD%B0%A8%B0%B0%BE%B0%E1%E6%F3%E0%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%FB%FC%E1%E6%E0%E7%F1%E6%FB%FD%FC%E1%D7%EA%F7%B0%A8%B0%B7%A1%D1%E2%B7%A1%D7%B7%A1%D1%E1%E2%F3%FC%B7%A0%A2%E1%E6%EB%FE%F7%B7%A1%D6%B7%A0%A0%F4%FD%FC%E6%BF%E1%FB%E8%F7%B7%A1%D3%B7%A0%A2%A3%A5%BC%A4%A6%E2%EA%B7%A1%D0%B7%A0%A0%B7%A1%D7%D7%FE%FB%F8%F3%B7%A0%A2%FE%F3%E1%B7%A0%A2%E0%F7%E1%E2%E7%F7%E1%E6%F3%E1%B7%A0%A2%F1%FD%E0%E0%F7%F1%E6%F3%E1%B7%A0%A2%EB%B7%A0%A2%FA%F3%F5%F3%B7%A0%A2%F1%FE%FB%F1%B7%A0%A2%F7%FC%B7%A0%A2%F7%FE%B7%A0%A2%F0%FD%E6%B7%D4%A1%FC%B7%A0%A2%D1%FD%FF%E2%E0%FD%F0%F3%E0%BC%B7%A1%D1%BD%E1%E2%F3%FC%B7%A1%D7%B7%A1%D1%BD%E2%B7%A1%D7%B0%BE%B0%FB%FC%E1%E6%E0%E7%F1%E6%FB%FD%FC%E1%B0%A8%B0%C1%F7%FE%F7%F1%F1%FB%FD%FC%F3%B2%FE%F3%E1%B2%E0%F7%E1%E2%E7%F7%E1%E6%F3%E1%B2%F1%FD%E0%E0%F7%F1%E6%F3%E1%B2%EB%B2%E2%E7%FE%E1%F3%B2%E1%FD%F0%E0%F7%B2%F7%FE%B2%F0%FD%E6a%FC%B2%CE%B0%E0%F7%E1%E2%FD%FC%F6%F7%E0%CE%B0%B2%B0%BE%B0%E1%FA%FD%E5%DF%FB%FC%FB%FF%FB%E8%F7%B0%A8%F4%F3%FE%E1%F7%BE%B0%FD%E2%E6%FB%FD%FC%E1%C0%F3%FF%F6%FD%FC%B0%A8%F4%F3%FE%E1%F7%BE%B0%F3%FC%E1%E5%F7%E0%E1%C0%F3%FF%F6%FD%FC%B0%A8%F4%F3%FE%E1%F7%BE%B0%E1%FA%FD%E5%C1%FD%FE%E7%E6%FB%FD%FC%B0%A8%E6%E0%E7%F7%BE%B0%E6%FB%FF%F7%C1%FA%FD%E5%C1%FD%FE%E7%E6%FB%FD%FC%B0%A8%A1%BE%B0%E7%E1%F7%DE%FB%E4%F7%E1%B0%A8%E6%E0%E7%F7%BE%B0%FC%E7%FF%F0%F7%E0%DE%FB%E4%F7%E1%B0%A8%A1%BE%B0%FB%E6%FB%FC%F7%E0%F3%E0%EB%B0%A8%E9%B0%E1%FA%FD%E5%D1%FE%E7%F7%B0%A8%F4%F3%FE%E1%F7%BE%B0%F1%FE%E7%F7%D5%F3%FF%F7%B0%A8%B0%B0%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F5%F7%D1%FE%E7%F7%B0%A8%A6%A2%BE%B0%E1%FA%FD%E5%D1%FD%F6%F7%D3%F1%F1%F7%E1%E1%B0%A8%F4%F3%FE%E1%F7%BE%B0%F1%FD%F6%F7%D3%F1%F1%F7%E1%E1%B0%A8%B0%B0%BE%B0%FF%F7%E1%E1%F3%F5%F7%D1%FD%F6%F7%D3%F1%F1%F7%E1%E1%B0%A8%B0%B0%EF%BE%B0%E1%F7%FE%F7%F1%E6%E1%D5%F3%FF%F7%B0%A8%C9%E9%B0%E6%EB%E2%F7%B0%A8%A2%BE%B0%E6%FB%FF%F7%B0%A8%A2%BE%B0%FC%E7%FF%F0%F7%E0%DD%E2%E6%FB%FD%FC%E1%B0%A8%A6%BE%B0%E6%EB%E2%F7%C1%F7%FE%F7%F1%E6%B0%A8%A2%BE%B0%EA%B0%A8%A2%BE%B0%EB%B0%A8%A2%BE%B0%F3%E7%E6%FA%FD%E0%B0%A8%B0%B0%BE%B0%F3%FE%E6%B0%A8%B0%B0%BE%B0%F1%E7%E1%E6%FD%FF%C1%F1%FD%E0%F7%B0%A8%A3%BE%B0%E7%E0%FE%B0%A8%B0%B0%BE%B0%F3%E7%F6%FB%FD%B0%A8%B0%B0%BE%B0%FA%FB%E6%B0%A8%BF%A3%BE%B0%F7%E0%E0%FD%E0%B0%A8%BF%A3%BE%B0%FF%E1%F5%DA%FB%E6%B0%A8%B0%B0%BE%B0%FF%E1%F5%D7%E0%E0%FD%E0%B0%A8%B0%B0%BE%B0%E1%FD%E7%FC%F6%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%FF%F3%F5%F7%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F4%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E6%C1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F7%C6%F7%EA%E6%B0%A8%B0%B0%BE%B0%E3%E7%F7%EA%E6%FB%FD%FC%B0%A8%B0-%D1%FD%FC%FD%F1%F7%E1%B2%FE%F3%B2%E7%F0%FB%F1%F3%F1%FBa%FC%AD%B0%BE%B0%FD%E2%E6%FB%FD%FC%E1%B0%A8%C9%B0%D4%F3%FC%F1%F3%E6%F3%E6%FB%E4s%B2%D1%F3%FE%FE%F7%B2%A7%B2%B1%A3%A0%D3%B2%BF%B2%A3%A2%B0%BE%B0%D4%F3%F1%F3%E6%F3%E6%FB%E4s%B2%D1%F3%FE%FE%F7%B2%A7%A0%B2%B1%A3%A7%D1%B2%BF%B2%AB%A7%B0%BE%B0%D4%F3%F1%F3%E6%F3%E6%FB%E4s%B2%D1%F3%FE%FE%F7%B2%A7%B2%B1%A3%A0%D3%B2%BF%B2%A3%A2%B0%BE%B0%D4%F3%FC%F1%F3%E6%F3%E6%FB%E4s%B2%D1%F3%FE%FE%F7%B2%A7%A7%B2%B1%A3%AB%A7%B2%BF%B2%A3%A2%B0%CF%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%B0%A8%B0%D1%B0%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%C3%E7%F7%E1%E6%FB%FD%FC%B0%A8%B0%B0%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F5%F7%C1%FA%FD%E5%B0%A8%A1%A7%EF%BE%E9%B0%E6%EB%E2%F7%B0%A8%A2%BE%B0%E6%FB%FF%F7%B0%A8%A2%BE%B0%FC%E7%FF%F0%F7%E0%DD%E2%E6%FB%FD%FC%E1%B0%A8%A6%BE%B0%E6%EB%E2%F7%C1%F7%FE%F7%F1%E6%B0%A8%A2%BE%B0%EA%B0%A8%A2%BE%B0%EB%B0%A8%A2%BE%B0%F3%E7%E6%FA%FD%E0%B0%A8%B0%B0%BE%B0%F3%FE%E6%B0%A8%B0%B0%BE%B0%F1%E7%E1%E6%FD%FF%C1%F1%FD%E0%F7%B0%A8%A3%BE%B0%E7%E0%FE%B0%A8%B0%B0%BE%B0%F3%E7%F6%FB%FD%B0%A8%B0%B0%BE%B0%FA%FB%E6%B0%A8%BF%A3%BE%B0%F7%E0%E0%FD%E0%B0%A8%BF%A3%BE%B0%FF%E1%F5%DA%FB%E6%B0%A8%B0%B0%BE%B0%FF%E1%F5%D7%E0%E0%FD%E0%B0%A8%B0%B0%BE%B0%E1%FD%E7%FC%F6%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%FF%F3%F5%F7%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F4%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E6%C1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F7%C6%F7%EA%E6%B0%A8%B0%B0%BE%B0%E3%E7%F7%EA%E6%FB%FD%FC%B0%A8%B0%D6%F7%E1%E6%F3%F1%F3%F6%FD%B2%E2%FD%E0%B2%E1%E7%E1%B2%E2%FB%FC%E6%E7%E0%F3%E1%BC%BC%BC%B0%BE%B0%FD%E2%E6%FB%FD%FC%E1%B0%A8%C9%B0%D3%B2%FF%F3%FC%FD%B2%F3%FE%E8%F3%F6%F3%B2%EB%B2%E6%E0%F3%E8%FD%E1%B2%F7%FE%F7%F5%F3%FC%E6%F7%E1%B0%BE%B0%C0%E7%E2%F7%E1%E6%E0%F7%E1%B0%BE%B0%D0%FE%F3%FC%F1%FD%B2%EB%B2%E0%FD%F8%FD%B0%BE%B0%DC%FB%FC%F5%E7%FC%F3%B0%CF%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%B0%A8%B0%D0%B0%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%C3%E7%F7%E1%E6%FB%FD%FC%B0%A8%B0%B0%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F5%F7%C1%FA%FD%E5%B0%A8%A1%A7%EF%BE%E9%B0%E6%EB%E2%F7%B0%A8%A2%BE%B0%E6%FB%FF%F7%B0%A8%A2%BE%B0%FC%E7%FF%F0%F7%E0%DD%E2%E6%FB%FD%FC%E1%B0%A8%A6%BE%B0%E6%EB%E2%F7%C1%F7%FE%F7%F1%E6%B0%A8%A2%BE%B0%EA%B0%A8%A2%BE%B0%EB%B0%A8%A2%BE%B0%F3%E7%E6%FA%FD%E0%B0%A8%B0%B0%BE%B0%F3%FE%E6%B0%A8%B0%B0%BE%B0%F1%E7%E1%E6%FD%FF%C1%F1%FD%E0%F7%B0%A8%A3%BE%B0%E7%E0%FE%B0%A8%B0%B0%BE%B0%F3%E7%F6%FB%FD%B0%A8%B0%B0%BE%B0%FA%FB%E6%B0%A8%BF%A3%BE%B0%F7%E0%E0%FD%E0%B0%A8%BF%A3%BE%B0%FF%E1%F5%DA%FB%E6%B0%A8%B0%B0%BE%B0%FF%E1%F5%D7%E0%E0%FD%E0%B0%A8%B0%B0%BE%B0%E1%FD%E7%FC%F6%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%FF%F3%F5%F7%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F4%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E6%C1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F7%C6%F7%EA%E6%B0%A8%B0%B0%BE%B0%E3%E7%F7%EA%E6%FB%FD%FC%B0%A8%B0-%C1%F7%B2%E2%E7%F7%F6%F7%FC%B2%FB%FC%F5%E0%F7%E1%F3%E0%B2%F1s%FF%F3%E0%F3%E1%AD%B0%BE%B0%FD%E2%E6%FB%FD%FC%E1%B0%A8%C9%B0%C1%FB%BE%B2%C6%FD%F6%FD%E1%B2%FE%FD%E1%B2%F6%FB%F3%E1%BC%B0%BE%B0%C1%FD%FE%FD%B2%FE%FD%E1%B2%DE%E7%FC%F7%E1%B0%BE%B0%DC%FD%B0%BE%B0%C1%FD%FE%FD%B2%FE%FD%E1%B2%DF%F3%E0%E6%F7%E1%B0%CF%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%B0%A8%B0%D3%B0%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%C3%E7%F7%E1%E6%FB%FD%FC%B0%A8%B0%B0%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F5%F7%C1%FA%FD%E5%B0%A8%A1%A7%EF%BE%E9%B0%E6%EB%E2%F7%B0%A8%A2%BE%B0%E6%FB%FF%F7%B0%A8%A2%BE%B0%FC%E7%FF%F0%F7%E0%DD%E2%E6%FB%FD%FC%E1%B0%A8%A6%BE%B0%E6%EB%E2%F7%C1%F7%FE%F7%F1%E6%B0%A8%A2%BE%B0%EA%B0%A8%A2%BE%B0%EB%B0%A8%A2%BE%B0%F3%E7%E6%FA%FD%E0%B0%A8%B0%B0%BE%B0%F3%FE%E6%B0%A8%B0%B0%BE%B0%F1%E7%E1%E6%FD%FF%C1%F1%FD%E0%F7%B0%A8%A3%BE%B0%E7%E0%FE%B0%A8%B0%B0%BE%B0%F3%E7%F6%FB%FD%B0%A8%B0%B0%BE%B0%FA%FB%E6%B0%A8%BF%A3%BE%B0%F7%E0%E0%FD%E0%B0%A8%BF%A3%BE%B0%FF%E1%F5%DA%FB%E6%B0%A8%B0%B0%BE%B0%FF%E1%F5%D7%E0%E0%FD%E0%B0%A8%B0%B0%BE%B0%E1%FD%E7%FC%F6%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%FF%F3%F5%F7%C4%FB%F6%F7%FD%B0%A8%A3%BE%B0%FB%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F4%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%E6%C1%FB%FE%F7%FC%E6%C4%FB%F6%F7%FD%B0%A8%A2%BE%B0%F7%C6%F7%EA%E6%B0%A8%B0%B0%BE%B0%E3%E7%F7%EA%E6%FB%FD%FC%B0%A8%B0-%D4%E7%F7%B2%F7%E1%E6%F7%B2%F7%FE%B2%E2%E0%FB%FF%F7%E0%B2%E2%F3%E0%E3%E7%F7%B2%F3%E0%E3%E7%F7%FD%FE%FD%F5%FB%F1%FD%B2%F1%E0%F7%F3%F6%FD%B2%F7%FC%B2%D1%FD%FE%FD%FF%F0%FB%F3%AD%B0%BE%B0%FD%E2%E6%FB%FD%FC%E1%B0%A8%C9%B0%C2%E0%FB%FF%F7%E0%FD%B2%F4%E7%F7%B2%F7%FE%B2%F6%F7%B2%DE%FD%E7%E0%F6%F7%E1%B0%BE%B0%C1%FB%BE%B2%F7%FC%B2%FF%FB%B2%A3%AB%A6%A4%BC%B0%BE%B0%D7%E1%E6%FD%B2%FC%FD%B2%F7%E1%B2%E7%FC%B2%E2%F3%E0%E3%E7%F7%B2%F3%E0%E3%E7%F7%FD%FE%FD%F5%FB%F1%FD%B0%BE%B0%D7%E1%B2%F6%F7%B2%C4%F7%FC%F7%E8%E7%F7%FE%F3%B0%CF%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%B0%A8%B0%B0%BE%B0%E1%FD%FE%E7%E6%FB%FD%FC%C3%E7%F7%E1%E6%FB%FD%FC%B0%A8%B0%B0%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F5%F7%C1%FA%FD%E5%B0%A8%A1%A7%EF%CF%BE%B0%FB%E1%C1%F1%FD%E0%FF%B0%A8%A2%BE%B0%E6%F7%EA%E6%D0%E7%E6%E6%FD%FC%C1%F1%FD%E0%FF%B0%A8%B0%D5%E7%F3%E0%F6%F3%E0%B2%FE%F3%B2%E2%E7%FC%E6%E7%F3%F1%FBa%FC%B0%BE%B0%E0%F7%E2%F7%F3%E6%D3%F1%E6%FB%E4%FB%E6%EB%B0%A8%F4%F3%FE%E1%F7%BE%B0%E6%FB%E6%FE%F7%B0%A8%B0%B0%BE%B0%F1%E7%E1%E6%FD%FF%C1%F1%FD%E0%F7%B0%A8%F4%F3%FE%E1%F7%BE%B0%E6%F7%EA%E6%D3%F4%E6%F7%E0%B0%A8%B0%B0%BE%B0%E6%F7%EA%E6%D4%F7%F7%F6%D0%F3%F1%F9%B0%A8%B0%B0%BE%B0%F5%F3%FF%F7%DF%FD%F6%F7%B0%A8%A3%BE%B0%F4%F7%F7%F6%D0%F3%F1%F9%B0%A8%F4%F3%FE%E1%F7%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F8%F7%D4%D0%B0%A8%A3%A2%A2%BE%B0%FD%E0%F6%F7%E0%B0%A8%A2%BE%B0%F1%E7%E1%E6%FD%FF%DF%F7%E1%E1%F3%F5%F7%E1%B0%A8%F4%F3%FE%E1%F7%BE%B0%E4%F7%E0%E1%FB%FD%FC%B0%A8%A1%BC%A3%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F8%F7%C3%E7%F7%E1%E6%FB%FD%FC%E1%B0%A8%A3%A2%A2%BE%B0%F3%E7%F6%FB%FD%D4%F7%F7%F6%D0%F3%F1%FA%B0%A8%F4%F3%FE%E1%F7%BE%B0%FF%E1%F5%E1%B0%A8%E9%B0%FF%E1%F5%C0%F7%F3%F6%EB%B0%A8%B0%C0%F7%F3%F6%EB%AD%B0%BE%B0%FF%E1%F5%C1%E6%F3%E0%E6%D5%F3%FF%F7%B0%A8%B0%D1%FE%FB%F1%F9%B2%FA%F7%E0%F7%B2%E6%FD%B2%E1%E6%F3%E0%E6%B0%BE%B0%FF%E1%F5%C1%E7%F0%FF%FB%E6%B0%A8%B0%C1%E7%F0%FF%FB%E6%B0%BE%B0%FF%E1%F5%D7%FC%E6%F7%E0%D1%FD%F6%F7%B0%A8%B0%D7%FC%E6%F7%E0%B2%E6%FA%F7%B2%F3%F1%F1%F7%E1%E1%B2%F1%FD%F6%F7%B0%BE%B0%FF%E1%F5%D7%E0%E0%FD%E0%D1%FD%F6%F7%B0%A8%B0%C6%FA%F7%B2%F3%F1%F1%F7%E1%E1%B2%F1%FD%F6%F7%B2%FB%E1%B2%FC%FD%E6%B2%F1%FD%E0%E0%F7%F1%E6%B0%BE%B0%FF%E1%F5%D5%F3%FF%F7%DD%E4%F7%E0%B0%A8%B0%D5%F3%FF%F7%B2%DD%E4%F7%E0%B3%B0%BE%B0%FF%E1%F5%D1%FE%E7%F7%B0%A8%B0%D1%FD%FD%FE%B3%B2%C6%FA%F7%B2%F1%FE%E7%F7%B2%FB%E1%A8%B0%BE%B0%FF%E1%F5%DC%F7%E5%D5%F3%FF%F7%B0%A8%B0%D1%FE%FB%F1%F9%B2%FA%F7%E0%F7%B2%F4%FD%E0%B2%F3%B2%FC%F7%E5%B2%F5%F3%FF%F7%B0%BE%B0%FF%E1%F5%CB%FD%E7%DA%F3%E1%B0%A8%B0%CB%FD%E7%B2%FA%F3%E4%F7%B2%F5%FD%E6%B2%B7%A3%B2%FA%FB%E6%E1%B2%F3%FC%F6%B2%B7%A0%B2%FF%FB%E1%E1%F7%E1%B0%BE%B0%FF%E1%F5%D1%FD%F6%F7%D3%F1%F1%F7%E1%E1%B0%A8%B0%D3%F1%F1%F7%E1%E1%B2%F1%FD%F6%F7%B0%BE%B0%FF%E1%F5%C2%FE%F3%EB%D3%F5%F3%FB%FC%B0%A8%B0%C2%FE%F3%EB%B2%D3%F5%F3%FB%FC%B0%BE%B0%FF%E1%F5%C0%F7%E3%E7%FB%E0%F7%F6%D3%F1%F1%F7%E1%E1%D9%F7%EB%B0%A8%B0%D3%F1%F1%F7%E1%E1%B2%F1%FD%F6%F7%B2%E0%F7%E3%E7%FB%E0%F7%F6%B0%BE%B0%FF%E1%F5%DB%FC%F4%FD%E0%FF%F3%E6%FB%FD%FC%DE%FD%FD%F9%FB%FC%F5%B0%A8%B0%D1%FD%FD%FE%B3%B2%C6%FA%F7%B2%FB%FC%F4%FD%E0%FF%F3%E6%FB%FD%FC%B2%EB%FD%E7%B2%E5%F7%E0%F7%B2%FE%FD%FD%F9%FB%FC%F5%B2%F4%FD%E0%B0%BE%B0%FF%E1%F5%C2%FE%F3%EB%C1%E6%F3%E0%E6%B0%A8%B0%D1%FE%FB%F1%F9%B2%FA%F7%E0%F7%B2%E6%FD%B2%E2%FE%F3%EB%B0%BE%B0%FF%E1%F5%D7%E0%E0%FD%E0%E1%B0%A8%B0%D7%E0%E0%FD%E0%E1%B0%BE%B0%FF%E1%F5%DA%FB%E6%E1%B0%A8%B0%DA%FB%E6%E1%B0%BE%B0%FF%E1%F5%C1%F1%FD%E0%F7%B0%A8%B0%C1%F1%FD%E0%F7%B0%BE%B0%FF%E1%F5%DF%FB%FC%FB%FF%FB%E8%F7%B0%A8%B0%DF%FB%FC%FB%FF%FB%E8%F7%B0%BE%B0%FF%E1%F5%DF%F3%EA%FB%FF%FB%E8%F7%B0%A8%B0%DF%F3%EA%FB%FF%FB%E8%F7%B0%BE%B0%FF%E1%F5%C6%FB%FF%F7%B0%A8%B0%C6%FB%FF%F7%B2%E2%F7%E0%B2%E3%E7%F7%E1%E6%FB%FD%FC%B0%BE%B0%FF%E1%F5%DE%FB%E4%F7%B0%A8%B0%DE%FB%F4%F7%B0%BE%B0%FF%E1%F5%D4%E7%FE%FE%C1%F1%E0%F7%F7%FC%B0%A8%B0%D4%E7%FE%FE%B2%C1%F1%E0%F7%F7%FC%B0%BE%B0%FF%E1%F5%D7%EA%FB%E6%D4%E7%FE%FE%C1%F1%E0%F7%F7%FC%B0%A8%B0%D7%EA%FB%E6%B2%D4%E7%FE%FE%B2%C1%F1%E0%F7%F7%FC%B0%BE%B0%FF%E1%F5%DC%E7%FF%C3%E7%F7%E1%E6%FB%FD%FC%E1%B0%A8%B0%DC%E7%FF%F0%F7%E0%B2%FD%F4%B2%E3%E7%F7%E1%E6%FB%FD%FC%E1%B0%BE%B0%FF%E1%F5%DC%FD%DB%FF%F3%F5%F7%B0%A8%B0%DC%FD%B2%E2%FB%F1%E6%E7%E0%F7%B2%E3%E7%F7%E1%E6%FB%FD%FC%B0%BE%B0%FF%E1%F5%D1%FD%FD%FE%B0%A8%B0%D1%FD%FD%FE%B3%B0%BE%B0%FF%E1%F5%DE%FD%E1%F7%C6%B0%A8%B0%CB%FD%E7%B2%FE%FD%E1%E6%B2%A1%A1%A2%B2%E2%FD%FB%FC%E6%E1%B0%BE%B0%FF%E1%F5%DE%FD%E1%F7%DE%FB%E4%F7%B0%A8%B0%CB%FD%E7%B2%FE%FD%E1%E6%B2%FD%FC%F7%B2%FE%FB%F4%F7%B0%BE%B0%FF%E1%F5%DE%FD%E1%E6%DE%FB%E4%F7%E1%B0%A8%B0%CB%FD%E7%B2%FE%FD%E1%E6%B2%F3%FE%FE%B2%EB%FD%E7%E0%B2%FE%FB%E4%F7%E1%B3%B0%BE%B0%FF%E1%F5%D3%FE%FE%C3%E7%F7%E1%E6%FB%FD%FC%E1%B0%A8%B0%C3%E7%F7%E1%E6%FB%FD%FC%E1%B2%F1%FD%FF%E2%FE%F7%E6%F7%F6%B3%B0%BE%B0%FF%E1%F5%C1%E7%F1%F1%F7%E1%E1%F7%E1%B0%A8%B0%C0%FB%F5%FA%E6%B3%B2%EE%B2%D7%EA%F1%F7%FE%FE%F7%FC%E6%B3%B2%EE%B2%D5%E0%F7%F3%E6%B3%B2%EE%B2%C4%F7%E0%EB%B2%F5%FD%FD%F6%B3%B2%EE%B2%C2%F7%E0%F4%F7%F1%E6%B3%B0%BE%B0%FF%E1%F5%D4%F3%FB%FE%E7%E0%F7%E1%B0%A8%B0%DB%E6%B2%E5%F3%E1%B2%FC%FD%E6%B2%E6%FA%F3%E6%B3%B2%EE%B2%DB%FC%F1%FD%E0%E0%F7%F1%E6%B3%B2%EE%B2%DC%FD%E6%B2%F1%FD%E0%E0%F7%F1%E6%B3%B2%EE%B2%C1%FD%E0%E0%EB%B3%B2%EE%B2%D7%E0%E0%FD%E0%B3%B0%BE%B0%FF%E1%F5%DC%FD%E6%DC%F7%E6%E5%FD%E0%F9%B0%A8%B0%CB%FD%E7%B2%F1%F3%FC%B2%FD%FC%FE%EB%B2%E2%FE%F3%EB%B2%E6%FA%FB%E1%B2%F5%F3%FF%F7%B2%E5%FB%E6%FA%B2%FB%FC%E6%F7%E0%FC%F7%E6%B2%F1%FD%FC%FC%F7%F1%E6%FB%FD%FC%BC%B0%BE%B0%FF%E1%F5%D7%FC%F6%D5%F3%FF%F7%C1%F1%FD%E0%F7%B0%A8%B0%C2%FE%F7%F3%E1%F7%B2%E1%E6%F3%E0%E6%B2%E2%FE%F3%EB%FB%FC%F5%B2%F4%FB%E0%E1%E6%BC%BC%BC%B0%BE%B0%FF%E1%F5%C1%F1%FD%E0%F7%C1%F1%FD%E0%FF%B0%A8%B0%C6%FA%F7%B2%E1%F1%FD%E0%F7%B2%F1%F3%FC%B5%E6%B2%F0%F7%B2%E1%F3%E4%F7%F6%B2%F0%F7%F1%F3%E7%E1%F7%B2%E6%FA%FB%E1%B2%E2%F3%F5%F7%B2%FB%E1%B2%FC%FD%E6%B2%E2%F3%E0%E6%B2%FD%F4%B2%F3%B2%C1%D1%DD%C0%DF%B2%E2%F3%F1%F9%F3%F5%F7%BC%B0%BE%B0%FF%E1%F5%C3%E7%F7%E1%E6%FB%FD%FC%B0%A8%B0%C3%E7%F7%E1%E6%FB%FD%FC%B0%BE%B0%FF%E1%F5%D3%FC%E1%E5%F7%E0%B0%A8%B0%D1%FA%F7%F1%F9%B0%BE%B0%FF%E1%F5%DD%FC%FE%EB%C1%F3%E4%F7%C1%F1%FD%E0%F7%B0%A8%B0%CB%FD%E7%B2%F1%F3%FC%B2%FD%FC%FE%EB%B2%E1%F3%E4%F7%B2%E6%FA%F7%B2%E1%F1%FD%E0%F7%B2%FD%FC%F1%F7%B3%B0%BE%B0%FF%E1%F5%DD%FC%FE%EB%C1%F3%E4%F7%B0%A8%B0%CB%FD%E7%B2%F1%F3%FC%B2%FD%FC%FE%EB%B2%E1%F3%E4%F7%B2%FD%FC%F1%F7%B0%BE%B0%FF%E1%F5%DB%FC%F4%FD%E0%FF%F3%E6%FB%FD%FC%B0%A8%B0%DB%FC%F4%FD%E0%FF%F3%E6%FB%FD%FC%B0%BE%B0%FF%E1%F5%CB%FD%E7%C1%F1%FD%E0%F7%B0%A8%B0%CB%FD%E7%E0%B2%E1%F1%FD%E0%F7%B0%BE%B0%FF%E1%F5%D3%E7%E6%FA%FD%E0%B0%A8%B0%D3%E7%E6%FA%FD%E0%B0%BE%B0%FF%E1%F5%DD%FC%FE%EB%C1%F3%E4%F7%D3%E7%E6%FD%B0%A8%B0%CB%FD%E7%E0%B2%E1%F1%FD%E0%F7%B2%E5%FB%FE%FE%B2%F0%F7%B2%E1%F3%E4%F7%F6%B2%F3%F4%E6%F7%E0%B2%F7%F3%F1%FA%B2%E3%E7%F7%E1%E6%FB%FD%FC%BC%B2%CB%FD%E7%B2%F1%F3%FC%B2%FD%FC%FE%EB%B2%E2%FE%F3%EB%B2%FD%FC%F1%F7%BC%B0%BE%B0%FF%E1%F5%C1%F3%E4%F7%D3%E7%E6%FD%B0%A8%B0%CB%FD%E7%E0%B2%E1%F1%FD%E0%F7%B2%E5%FB%FE%FE%B2%F0%F7%B2%F3%E7%E6%FD%FF%F3%E6%FB%F1%F3%FE%FE%EB%B2%E1%F3%E4%F7%F6%B2%F3%F4%E6%F7%E0%B2%F7%F3%F1%FA%B2%E3%E7%F7%E1%E6%FB%FD%FC%BC%B0%BE%B0%FF%E1%F5%C1%F7%E4%F7%E0%F3%FE%C1%F1%FD%E0%F7%B0%A8%B0%CB%FD%E7%B2%F1%F3%FC%B2%E1%F3%E4%F7%B2%E6%FA%F7%B2%E1%F1%FD%E0%F7%B2%F3%E1%B2%FF%F3%FC%EB%B2%E6%FB%FF%F7%E1%B2%F3%E1%B2%EB%FD%E7%B2%E5%F3%FC%E6%B0%BE%B0%FF%E1%F5%CB%FD%E7%DE%F3%E1%E6%C1%F1%FD%E0%F7%B0%A8%B0%C6%FA%F7%B2%FE%F3%E1%E6%B2%E1%F1%FD%E0%F7%B2%E1%F3%E4%F7%F6%B2%FB%E1%B0%BE%B0%FF%E1%F5%D3%F1%E6%FB%E6%EB%D1%FD%FF%E2%FE%EB%B0%A8%B0%CB%FD%E7%B2%FA%F3%E4%F7%B2%F3%FE%E0%F7%F3%F6%EB%B2%F6%FD%FC%F7%B2%E6%FA%FB%E1%B2%F3%F1%E6%FB%E4%FB%E6%EB%BC%B0%BE%B0%FF%E1%F5%C2%FE%F3%EB%C1%F7%E4%F7%E0%F3%FE%C6%FB%FF%F7%E1%B0%A8%B0%CB%FD%E7%B2%F1%F3%FC%B2%F6%FD%B2%E6%FA%FB%E1%B2%F3%F1%E6%FB%E4%FB%E6%EB%B2%F3%E1%B2%FF%F3%FC%EB%B2%E6%FB%FF%F7%E1%B2%F3%E1%B2%EB%FD%E7%B2%E5%F3%FC%E6%B0%BE%B0%FF%E1%F5%C6%E0%EB%D3%F5%F3%FB%FC%B0%A8%B0%CB%FD%E7%B2%FC%F7%F7%F6%B2%F3%E6%B2%FE%F7%F3%E1%E6%B2%B7%E1%B7%B2%FD%F4%B2%F1%FD%E0%E0%F7%F1%E6%B2%F3%FC%E1%E5%F7%E0%E1%B2%E6%FD%B2%F5%F7%E6%B2%E6%FA%F7%B2%FB%FC%F4%FD%E0%FF%F3%E6%FB%FD%FC%BC%B2%C2%FE%F7%F3%E1%F7%B2%E6%E0%EB%B2%F3%F5%F3%FB%FC%BC%B0%BE%B0%FF%E1%F5%C4%FB%F6%F7%FD%DB%FC%E6%E0%FD%B0%A8%B0%C4%FB%F6%F7%FD%B2%DB%FC%E6%E0%FD%B0%BE%B0%FF%E1%F5%D1%FE%FD%E1%F7%B0%A8%B0%D1%FE%FD%E1%F7%B0%BE%B0%FF%E1%F5%DD%E2%E6%FB%FD%FC%B0%A8%B0%DD%E2%E6%FB%FD%FC%B0%BE%B0%FF%E1%F5%C0%FB%F1%F9%C6%F7%EA%E6%B0%A8%B0%C0%FB%F1%FA%B2%C6%F7%EA%E6%B0%BE%B0%FF%E1%F5%C7%E1%F7%D4%E7%FE%DB%FC%F4%FD%E0%FF%F3%E6%FB%FD%FC%B0%A8%B0%F3%FC%F6%B2%FB%FC%F4%FD%E0%FF%F3%E6%FB%FD%FC%B2%E6%FA%F3%E6%B2%E5%FB%FE%FE%B2%F0%F7%B2%E4%F7%E0%EB%B2%E7%E1%F7%F4%E7%FE%B0%BE%B0%FF%E1%F5%DE%FD%F3%F6%FB%FC%F5%B0%A8%B0%DE%FD%F3%F6%FB%FC%F5%BC%B2%C2%FE%F7%F3%E1%F7%B2%E5%F3%FB%E6%BC%BC%BC%B0%BE%B0%FF%E1%F5%DD%E0%F6%F7%E0%E1%B0%A8%B0%C2%FE%F7%F3%E1%F7%B2%FD%E0%F6%F7%E0%B2%E6%FA%F7%B2%F3%FC%E1%E5%F7%E0%E1%B0%BE%B0%FF%E1%F5%DB%FC%F6%FB%F1%F3%E6%F7%C5%FD%E0%F6%B0%A8%B0%C2%E0%FD%E4%FB%F6%F7%B2%F3%B2%E5%FD%E0%F6%B2%FD%E0%B2%E2%FA%E0%F3%E1%F7%B0%BE%B0%FF%E1%F5%DF%FD%E4%F7%DD%FC%F7%B0%A8%B0%DF%FD%E4%F7%B2%FD%FC%B0%BE%B0%FF%E1%F5%C2%FD%FB%FC%E6%E1%B0%A8%B0%E2%FD%FB%FC%E6%E1%B0%BE%B0%FF%E1%F5%D3%E7%F6%FB%FD%B0%A8%B0%D3%E7%F6%FB%FD%B0%EF%EF</div><div class="selecciona-bns js-hidden">Su navegador no es compatible con esta herramienta.</div></div>
+</div>
+</div>
+</div>
+</div>
+</article>
 </section>
 </div>
 <div id='bottomPagination'>
@@ -413,4 +427,4 @@
 </nav>
 </div>
 </div>
-<script type="text/javascript" src="styleJs.js"></script></body></html>
+<script type="text/javascript" src="style_js.js"></script></body></html>
