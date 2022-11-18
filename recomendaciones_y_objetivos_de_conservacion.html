@@ -294,7 +294,7 @@
     $(()=>{
        (async ()=> {
           const sound1 = await new Audio('https://sound-effects-media.bbcrewind.co.uk/mp3/NHU05085068.mp3');
-          const sound2 = await new Audio('/bambu_1.mp3');
+          const sound2 = await new Audio('./bambu_1.mp3');
           sound1.currentTime = 1.2;
           $('body').append($('<span></span>').css({
              "position": "fixed",
